@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>AMApplicationBuild</key>
-	<string>414</string>
+	<string>428</string>
 	<key>AMApplicationVersion</key>
-	<string>2.5</string>
+	<string>2.7</string>
 	<key>AMDocumentVersion</key>
 	<string>2</string>
 	<key>actions</key>
@@ -51,7 +51,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run {input, parameters}		set resourceFolder to ((path to me) as text) &amp; "Contents:"	if resourceFolder contains "Automator.app" then -- this action is running in a workflow document		display alert "Run AppleScript error" message "The AppleScript action that gets the resource folder needs to be run from an application.  Save the workflow as an application and try again."		error number -128 -- cancel			end if		set resourcePath to POSIX path of resourceFolder		repeat		try			do shell script "ping -o www.pushbullet.com"			exit repeat		on error			delay 5		end try	end repeat		do shell script ". " &amp; resourcePath &amp; "pushbullet push all note \"User Login Detected at `date +%H:%M`\""		return inputend run</string>
+					<string>on run {input, parameters}		set resourceFolder to ((path to me) as text) &amp; "Contents:"	if resourceFolder contains "Automator.app" then -- this action is running in a workflow document		display alert "Run AppleScript error" message "The AppleScript action that gets the resource folder needs to be run from an application.  Save the workflow as an application and try again."		error number -128 -- cancel			end if		set resourcePath to POSIX path of resourceFolder		repeat		try			do shell script "ping -o www.pushbullet.com"			exit repeat		on error			delay 5		end try	end repeat	do shell script ". " &amp; resourcePath &amp; "pushbullet push all note \"[" &amp; computer name of (system info) &amp; "] Login Detected at `date +%r`\""		return inputend run</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -105,7 +105,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>382.500000:523.000000</string>
+				<string>451.000000:531.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
